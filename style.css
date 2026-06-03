@@ -13,8 +13,8 @@ html {
 
 .button1 {
     position: absolute;
-    left: 300px;
-    top: 400px;
+    left: 40%;
+    top: 50%;
     width: 200px;
     height: 120px;
     background: #646A96;
@@ -24,4 +24,30 @@ html {
     font-size: 40px;
     font-family: font1;
     border: solid 10px #3B4067;
+}
+
+.player {
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    width: 150px;
+    height: 200px;
+    background: #74B668;
+}
+
+.inimigo {
+    position: absolute;
+    left: 500px;
+    top: 100px;
+    width: 150px;
+    height: 200px;
+    background: #CA4F68;
+}
+
+.opcao {
+    position: absolute;
+    width: 150px;
+    height: 80px;
+    background: #7A94D3;
+    border: solid 4px #384668;
 }
