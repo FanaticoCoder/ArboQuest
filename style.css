@@ -1,6 +1,8 @@
 @font-face {
-    font-family: font1;
-    src: url(/I-pixel-u.ttf);
+    font-family: "font1";
+    src: url("assets/fonts/I-pixel-u.woff2") format("woff2"),
+        url("assets/fonts/I-pixel-u.woff") format("woff"),
+        url("assets/fonts/I-pixel-u.ttf") format("truetype");
 }
 
 body {
