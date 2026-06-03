@@ -8,7 +8,7 @@ body {
 }
 
 html {
-    background-color: #7B8398;
+    background-color: #C2C8D9;
 }
 
 .button1 {
@@ -17,10 +17,11 @@ html {
     top: 400px;
     width: 200px;
     height: 120px;
-    background: #464A6A;
+    background: #646A96;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 40px;
     font-family: font1;
+    border: solid 10px #3B4067;
 }
