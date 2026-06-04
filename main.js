@@ -11,14 +11,14 @@ som[1].src = 'errado.wav';
 
 var quest = [
   [
-    'QUADRADO?',
+    'QUADRADOs?',
     ['CIRCULO', false],
     ['RETANGULO', false],
     ['TRIANGULO', false],
     ['QUADRADO', true]
   ],
   [
-    'BOLA?',
+    'BOLAs?',
     ['ESFERA', false],
     ['REDONDO', false],
     ['BOLA', true],
