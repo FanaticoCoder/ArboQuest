@@ -1,38 +1,47 @@
 // TELA INICIAL
+som = [];
+for (let i = 0; i <= 2; i++) {
+  let audio = document.createElement('audio');
+  som.push(audio);
+  som[i].volume = 0.1;
+};
+som[0].src = 'certo.wav';
+som[1].src = 'errado.wav';
 
 var quest = [
   [
-    'quadrado?',
-    ['circulo', false],
-    ['retangulo', false],
-    ['triangulo', false],
-    ['quadrado', true]
+    'QUADRADO?',
+    ['CIRCULO', false],
+    ['RETANGULO', false],
+    ['TRIANGULO', false],
+    ['QUADRADO', true]
   ],
   [
-    'bola?' ['esfera', false],
-    ['redondo', false],
-    ['bola', true],
-    ['pedra?', false]
+    'BOLA?',
+    ['ESFERA', false],
+    ['REDONDO', false],
+    ['BOLA', true],
+    ['PEDRA?', false]
   ],
   [
-    'casa?',
-    ['casa', true],
-    ['predio', false],
-    ['garagem', false],
-    ['chacara', false]
+    'CASA?',
+    ['CASA', true],
+    ['PREDIO', false],
+    ['GARAGEM', false],
+    ['CHACARA', false]
   ],
   [
-    'peixe?',
-    ['cabalo', false],
-    ['peixe', true],
-    ['coelho', false],
-    ['passaro', false]
+    'PEIXE?',
+    ['CAVALO', false],
+    ['PEIXE', true],
+    ['COELHO', false],
+    ['PASSARO', false]
   ],
   [
-    'posso?',
-    ['nao', false],
-    ['sim', false],
-    ['pode', true],
+    'POSSO?',
+    ['NAO', false],
+    ['SIM', false],
+    ['PODE', true],
     ['talvez', false]
   ]
 ];
@@ -68,16 +77,57 @@ button1.addEventListener('touchend', () => {
     opcoes.push(opcao);
   };
   
-  opcoes[0].style.left = '200px';
+  opcoes[0].style.left = '225px';
   opcoes[0].style.top = '700px';
   
-  opcoes[1].style.left = '600px';
+  opcoes[1].style.left = '625px';
   opcoes[1].style.top = '700px';
   
-  opcoes[2].style.left = '200px';
+  opcoes[2].style.left = '225px';
   opcoes[2].style.top = '900px';
   
-  opcoes[3].style.left = '600px';
+  opcoes[3].style.left = '625px';
   opcoes[3].style.top = '900px';
+  
+  let sort = Math.floor(Math.random() * 4);
+  let timeQuest;
+  let timeOpcao;
+  for (let i = 0; i < opcoes.length; i++) {
+    let bug = true;
+    legend.textContent = quest[sort][0];
+    opcoes[i].textContent = quest[sort][i + 1][0];
+    opcoes[i].dataset.correct = quest[sort][i + 1][1];
+    
+    opcoes[i].addEventListener('touchstart', () => {
+      if (opcoes[i].dataset.correct === 'true') {
+        som[0].currentTime = 0;
+        som[0].play();
+      }
+      else {
+        som[1].currentTime = 0;
+        som[1].play();
+        timeQuest = setInterval(() => {
+          if (bug) {
+            legend.textContent = quest[sort][0];
+          } else {
+            legend.textContent = '';
+          }
+          bug = !bug;
+        }, 100)
+        timeOpcao = setInterval(() => {
+          if (bug) {
+            opcoes[i].textContent = quest[sort][i + 1][0]
+          } else {
+            opcoes[i].textContent = ''
+          };
+          setTimeout(() => {
+            clearInterval(timeQuest);
+            clearInterval(timeOpcao);
+          }, 500)
+        }, 100)
+      }
+    })
+  }
 });
+
 // TELA DE JOGO
