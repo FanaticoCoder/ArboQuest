@@ -1,5 +1,43 @@
 // TELA INICIAL
 
+var quest = [
+  [
+    'quadrado?',
+    ['circulo', false],
+    ['retangulo', false],
+    ['triangulo', false],
+    ['quadrado', true]
+  ],
+  [
+    'bola?' ['esfera', false],
+    ['redondo', false],
+    ['bola', true],
+    ['pedra?', false]
+  ],
+  [
+    'casa?',
+    ['casa', true],
+    ['predio', false],
+    ['garagem', false],
+    ['chacara', false]
+  ],
+  [
+    'peixe?',
+    ['cabalo', false],
+    ['peixe', true],
+    ['coelho', false],
+    ['passaro', false]
+  ],
+  [
+    'posso?',
+    ['nao', false],
+    ['sim', false],
+    ['pode', true],
+    ['talvez', false]
+  ]
+];
+
+console.log(quest[0][0], quest[0][2]);
 var button1 = document.createElement('div');
 button1.className = 'button1';
 document.body.appendChild(button1);
