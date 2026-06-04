@@ -90,27 +90,34 @@ button1.addEventListener('touchend', () => {
   opcoes[3].style.left = '625px';
   opcoes[3].style.top = '900px';
   if (lig) {
-    let sort = Math.floor(Math.random() * 4);
-    
+    let sort = Math.floor(Math.random() * opcoes.length);
+    var ops = [0, 1, 2, 3]
+    for (let i = 0; i < ops.length; i++) {
+      var j = Math.floor(Math.random() * (i + 1));
+      [ops[i], ops[j]] = [ops[j], ops[i]];
+      console.log(ops)
+    }
     for (let i = 0; i < opcoes.length; i++) {
+      var op = ops
+      console.log('op',op)
       legend.textContent = quest[sort][0];
-      opcoes[i].textContent = quest[sort][i + 1][0];
-      opcoes[i].dataset.correct = quest[sort][i + 1][1];
+      opcoes[op[i]].textContent = quest[sort][i + 1][0];
+      opcoes[op[i]].dataset.correct = quest[sort][i + 1][1];
       
-      opcoes[i].addEventListener('touchstart', () => {
-var timeQuest;
-var bug = true;
-        if (opcoes[i].dataset.correct === 'true') {
+      opcoes[op[i]].addEventListener('touchstart', () => {
+        var timeQuest;
+        var bug = true;
+        if (opcoes[op[i]].dataset.correct === 'true') {
           som[0].currentTime = 0;
           som[0].play();
           
           timeQuest = setInterval(() => {
             if (bug) {
               legend.textContent = quest[sort][0];
-              opcoes[i].textContent = quest[sort][i + 1][0];
+              opcoes[op[i]].textContent = quest[sort][i + 1][0];
             } else {
               legend.textContent = '';
-              opcoes[i].textContent = '';
+              opcoes[op[i]].textContent = '';
               
             }
             bug = !bug;
@@ -119,7 +126,7 @@ var bug = true;
           setTimeout(() => {
             clearInterval(timeQuest);
             legend.textContent = quest[sort][0];
-            opcoes[i].textContent = quest[sort][i + 1][0];
+            opcoes[op[i]].textContent = quest[sort][i + 1][0];
           }, 800)
         }
         else {
@@ -128,10 +135,10 @@ var bug = true;
           timeQuest = setInterval(() => {
             if (bug) {
               legend.textContent = quest[sort][0];
-              opcoes[i].textContent = quest[sort][i + 1][0];
+              opcoes[op[i]].textContent = quest[sort][i + 1][0];
             } else {
               legend.textContent = '';
-              opcoes[i].textContent = '';
+              opcoes[op[i]].textContent = '';
             }
             bug = !bug;
           }, 50);
@@ -139,7 +146,7 @@ var bug = true;
           setTimeout(() => {
             clearInterval(timeQuest);
             legend.textContent = quest[sort][0];
-            opcoes[i].textContent = quest[sort][i + 1][0];
+            opcoes[op[i]].textContent = quest[sort][i + 1][0];
           }, 800)
         }
       })
