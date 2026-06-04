@@ -1,4 +1,5 @@
 // TELA INICIAL
+lig = true;
 som = [];
 for (let i = 0; i <= 2; i++) {
   let audio = document.createElement('audio');
@@ -88,46 +89,62 @@ button1.addEventListener('touchend', () => {
   
   opcoes[3].style.left = '625px';
   opcoes[3].style.top = '900px';
-  
-  let sort = Math.floor(Math.random() * 4);
-  let timeQuest;
-  let timeOpcao;
-  for (let i = 0; i < opcoes.length; i++) {
-    let bug = true;
-    legend.textContent = quest[sort][0];
-    opcoes[i].textContent = quest[sort][i + 1][0];
-    opcoes[i].dataset.correct = quest[sort][i + 1][1];
+  if (lig) {
+    let sort = Math.floor(Math.random() * 4);
     
-    opcoes[i].addEventListener('touchstart', () => {
-      if (opcoes[i].dataset.correct === 'true') {
-        som[0].currentTime = 0;
-        som[0].play();
-      }
-      else {
-        som[1].currentTime = 0;
-        som[1].play();
-        timeQuest = setInterval(() => {
-          if (bug) {
-            legend.textContent = quest[sort][0];
-          } else {
-            legend.textContent = '';
-          }
-          bug = !bug;
-        }, 100)
-        timeOpcao = setInterval(() => {
-          if (bug) {
-            opcoes[i].textContent = quest[sort][i + 1][0]
-          } else {
-            opcoes[i].textContent = ''
-          };
+    for (let i = 0; i < opcoes.length; i++) {
+      legend.textContent = quest[sort][0];
+      opcoes[i].textContent = quest[sort][i + 1][0];
+      opcoes[i].dataset.correct = quest[sort][i + 1][1];
+      var timeQuest;
+      var bug = true;
+      opcoes[i].addEventListener('touchstart', () => {
+        if (opcoes[i].dataset.correct === 'true') {
+          som[0].currentTime = 0;
+          som[0].play();
+          
+          timeQuest = setInterval(() => {
+            if (bug) {
+              legend.textContent = quest[sort][0];
+              opcoes[i].textContent = quest[sort][i + 1][0];
+            } else {
+              legend.textContent = '';
+              opcoes[i].textContent = '';
+              
+            }
+            bug = !bug;
+          }, 100);
+          
           setTimeout(() => {
             clearInterval(timeQuest);
-            clearInterval(timeOpcao);
-          }, 500)
-        }, 100)
-      }
-    })
-  }
+            legend.textContent = quest[sort][0];
+            opcoes[i].textContent = quest[sort][i + 1][0];
+          }, 800)
+        }
+        else {
+          som[1].currentTime = 0;
+          som[1].play();
+          timeQuest = setInterval(() => {
+            if (bug) {
+              legend.textContent = quest[sort][0];
+              opcoes[i].textContent = quest[sort][i + 1][0];
+            } else {
+              legend.textContent = '';
+              opcoes[i].textContent = '';
+            }
+            bug = !bug;
+          }, 50);
+          
+          setTimeout(() => {
+            clearInterval(timeQuest);
+            legend.textContent = quest[sort][0];
+            opcoes[i].textContent = quest[sort][i + 1][0];
+          }, 800)
+        }
+      })
+    }
+    lig = false;
+  };
 });
 
 // TELA DE JOGO
