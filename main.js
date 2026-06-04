@@ -96,9 +96,10 @@ button1.addEventListener('touchend', () => {
       legend.textContent = quest[sort][0];
       opcoes[i].textContent = quest[sort][i + 1][0];
       opcoes[i].dataset.correct = quest[sort][i + 1][1];
-      var timeQuest;
-      var bug = true;
+      
       opcoes[i].addEventListener('touchstart', () => {
+var timeQuest;
+var bug = true;
         if (opcoes[i].dataset.correct === 'true') {
           som[0].currentTime = 0;
           som[0].play();
