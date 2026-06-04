@@ -19,6 +19,10 @@ button1.addEventListener('touchend', () => {
   inimigo.className = 'inimigo';
   document.body.appendChild(inimigo);
   
+  var legend = document.createElement('div');
+  legend.className = 'legend';
+  document.body.appendChild(legend);
+  
   for (let i = 0; i <= 3; i++) {
     var opcao = document.createElement('div');
     opcao.className = 'opcao';
@@ -26,16 +30,16 @@ button1.addEventListener('touchend', () => {
     opcoes.push(opcao);
   };
   
-  opcoes[0].style.left = '100px';
-  opcoes[0].style.top = '500px';
+  opcoes[0].style.left = '200px';
+  opcoes[0].style.top = '700px';
   
-  opcoes[1].style.left = '500px';
-  opcoes[1].style.top = '500px';
+  opcoes[1].style.left = '600px';
+  opcoes[1].style.top = '700px';
   
-  opcoes[2].style.left = '100px';
-  opcoes[2].style.top = '700px';
+  opcoes[2].style.left = '200px';
+  opcoes[2].style.top = '900px';
   
-  opcoes[3].style.left = '500px';
-  opcoes[3].style.top = '700px';
+  opcoes[3].style.left = '600px';
+  opcoes[3].style.top = '900px';
 });
 // TELA DE JOGO
