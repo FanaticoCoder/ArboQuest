@@ -94,7 +94,7 @@ button1.addEventListener('touchend', () => {
     var ops = [0, 1, 2, 3]
     for (let i = 0; i < ops.length; i++) {
       var j = Math.floor(Math.random() * (i + 1));
-      [ops[i], ops[j]] = [ops[j], ops[i]];
+      [ops[j], ops[i]] = [ops[i], ops[j]];
       console.log(ops)
     }
     for (let i = 0; i < opcoes.length; i++) {
