@@ -89,7 +89,7 @@ button1.addEventListener('touchend', () => {
   
   opcoes[3].style.left = '625px';
   opcoes[3].style.top = '900px';
-  if (lig) {
+  function rodando() {
     let sort = Math.floor(Math.random() * opcoes.length);
     var ops = [0, 1, 2, 3]
     for (let i = 0; i < ops.length; i++) {
@@ -127,6 +127,9 @@ button1.addEventListener('touchend', () => {
             clearInterval(timeQuest);
             legend.textContent = quest[sort][0];
             opcoes[op[i]].textContent = quest[sort][i + 1][0];
+                        setTimeout(() => {
+              rodando();
+            }, 100)
           }, 800)
         }
         else {
@@ -147,12 +150,15 @@ button1.addEventListener('touchend', () => {
             clearInterval(timeQuest);
             legend.textContent = quest[sort][0];
             opcoes[op[i]].textContent = quest[sort][i + 1][0];
+            setTimeout(()=>{
+              rodando();
+            },100)
           }, 800)
         }
       })
     }
-    lig = false;
   };
+  rodando();
 });
 
 // TELA DE JOGO
