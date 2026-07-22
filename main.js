@@ -1,27 +1,33 @@
-// TELA INICIAL
-
-//cria os botoes iniciais start e creditos
-  var start = document.createElement('div');
-  var buttonCredits = document.createElement('div');
-  
-// torna visível os botões
-function creatTelaInicial() {
-  start.className = 'start';
-  document.body.appendChild(start);
-  
-  buttonCredits.className = 'buttonCredits';
-  document.body.appendChild(buttonCredits);
-};
-creatTelaInicial();
-
-// atribui texto aos botões iniciais
-buttonCredits.textContent = 'CREDITS';
+window.start = document.createElement('div');
+start.className = 'start';
 start.textContent = 'PLAY';
 
-start.addEventListener('touchstart', () => {
+window.buttonBack = document.createElement('div');
+buttonBack.className = 'buttonBack';
+buttonBack.textContent = 'BACK';
+
+window.buttonCredits = document.createElement('div');
+buttonCredits.className = 'buttonCredits';
+buttonCredits.textContent = 'CREDITS';
+
+window.nameGame = document.createElement('img');
+nameGame.src = 'NameGame.png';
+nameGame.className = 'nameGame';
+var timeGameNameAnimation;
+
+function animationNameGame() {
+  elementPosX = [5, 5.5, 6, 5.5, 5];
+  let movePosX = 0;
   
-})
-start.addEventListener('touchend', () => {
-  start.remove();
-  buttonCredits.remove();
-})
+  timeGameNameAnimation = setInterval(() => {
+    movePosX += 1;
+    nameGame.style.top = elementPosX[movePosX] + '%';
+    
+    if (movePosX === 4) {
+      movePosX = -1;
+    };
+    
+  }, 150);
+};
+window.animationNameGame = animationNameGame;
+animationNameGame();
