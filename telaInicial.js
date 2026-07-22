@@ -6,6 +6,7 @@ start.addEventListener('touchend', () => {
   start.remove();
   buttonCredits.remove();
   nameGame.remove();
+  clearInterval(timeGameNameAnimation);
 });
 
 buttonCredits.addEventListener('touchend', () => {
@@ -13,4 +14,5 @@ buttonCredits.addEventListener('touchend', () => {
   start.remove();
   buttonCredits.remove();
   nameGame.remove();
+  clearInterval(timeGameNameAnimation);
 })
