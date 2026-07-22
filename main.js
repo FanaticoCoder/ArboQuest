@@ -15,6 +15,7 @@ nameGame.src = 'NameGame.png';
 nameGame.className = 'nameGame';
 var timeGameNameAnimation;
 
+// CRIA A ANIMAÇÃO DO NOME
 function animationNameGame() {
   elementPosX = [5, 5.5, 6, 5.5, 5];
   let movePosX = 0;
@@ -29,10 +30,13 @@ function animationNameGame() {
     
   }, 150);
 };
+
+// TORNA A FUNCAO DE ANIMAÇÃO DO NOME GLOBAL
 window.animationNameGame = animationNameGame;
 animationNameGame();
 
+// IMPEDE O RELOAD DO NAVEGADOR
 window.addEventListener("beforeunload", function(event) {
   event.preventDefault();
-  event.returnValue = ""; // alguns navegadores exigem isso
+  event.returnValue = "";
 });
