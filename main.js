@@ -13,7 +13,7 @@ buttonCredits.textContent = 'CREDITS';
 window.nameGame = document.createElement('img');
 nameGame.src = 'NameGame.png';
 nameGame.className = 'nameGame';
-var timeGameNameAnimation;
+var timeGameNameAnimation; // timer pra a animação do nome do jogo
 
 // CRIA A ANIMAÇÃO DO NOME
 function animationNameGame() {
@@ -34,6 +34,21 @@ function animationNameGame() {
 // TORNA A FUNCAO DE ANIMAÇÃO DO NOME GLOBAL
 window.animationNameGame = animationNameGame;
 animationNameGame();
+
+window.player = document.createElement('div');
+player.className = 'player';
+
+window.inimigo = document.createElement('div');
+inimigo.className = 'inimigo';
+
+window.alterna = [];
+window.alternaPosXePosY = [
+  [225, 625, 225, 625],
+  [700, 700, 900, 900]
+];
+
+window.legend = document.createElement('div');
+legend.className = 'legend';
 
 // IMPEDE O RELOAD DO NAVEGADOR
 window.addEventListener("beforeunload", function(event) {
