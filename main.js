@@ -31,3 +31,8 @@ function animationNameGame() {
 };
 window.animationNameGame = animationNameGame;
 animationNameGame();
+
+window.addEventListener("beforeunload", function(event) {
+  event.preventDefault();
+  event.returnValue = ""; // alguns navegadores exigem isso
+});
