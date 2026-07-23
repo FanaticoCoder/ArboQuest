@@ -1,19 +1,27 @@
+// ORIGEM DOS BOTÕES
+
+// START
 window.start = document.createElement('div');
 start.className = 'start';
 start.textContent = 'PLAY';
 
+// BOTÃO DE VOLTAR
 window.buttonBack = document.createElement('div');
 buttonBack.className = 'buttonBack';
 buttonBack.textContent = 'BACK';
 
+// BOTÃO DE CRÉDITOS
 window.buttonCredits = document.createElement('div');
 buttonCredits.className = 'buttonCredits';
 buttonCredits.textContent = 'CREDITS';
 
+// CRIA O NOME DO JOGO
 window.nameGame = document.createElement('img');
 nameGame.src = 'NameGame.png';
 nameGame.className = 'nameGame';
-var timeGameNameAnimation; // timer pra a animação do nome do jogo
+
+// TIMER PRA A ANIMAÇÃO DO NOME DO JOGO
+var timeGameNameAnimation;
 
 // CRIA A ANIMAÇÃO DO NOME
 function animationNameGame() {
@@ -31,22 +39,28 @@ function animationNameGame() {
   }, 150);
 };
 
-// TORNA A FUNCAO DE ANIMAÇÃO DO NOME GLOBAL
+// TORNA GLOBAL A FUNÇÃO DA ANIMAÇÃO DO NOME
 window.animationNameGame = animationNameGame;
 animationNameGame();
 
+// CRIA O ELEMENTO PLAYER
 window.player = document.createElement('div');
 player.className = 'player';
 
+// CRIA O ELEMENTO INIMIGO
 window.inimigo = document.createElement('div');
 inimigo.className = 'inimigo';
 
+// ARRAY DOS DIVS
 window.alterna = [];
+
+// POSIÇÃO DOS DIVS NA TELA
 window.alternaPosXePosY = [
   [225, 625, 225, 625],
   [700, 700, 900, 900]
 ];
 
+// CRIA A PERGUNTA
 window.legend = document.createElement('div');
 legend.className = 'legend';
 

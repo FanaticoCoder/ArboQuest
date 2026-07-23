@@ -14,7 +14,7 @@ html {
 
 .nameGame {
     position: absolute;
-    left: 15%;
+    left: 20%;
     top: 5%;
     width: calc(530px*1.6);
     height: calc(512px*1.6);

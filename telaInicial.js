@@ -2,6 +2,7 @@ document.body.appendChild(buttonCredits);
 document.body.appendChild(start);
 document.body.appendChild(nameGame);
 
+// INICIA TODO O EVENTO DE PERGUNTAS
 start.addEventListener('touchend', () => {
   start.remove();
   buttonCredits.remove();
@@ -10,15 +11,10 @@ start.addEventListener('touchend', () => {
   
   document.body.appendChild(player);
   document.body.appendChild(inimigo);
-  for (let i = 0; i <= 3; i++) {
-    let alter = document.createElement('div');
-    alter.className = 'opcao';
-    alterna.push(alter);
-    document.body.appendChild(alter);
-    
-    alterna[i].style.left = alternaPosXePosY[0][i] + 'px';
-    alterna[i].style.top = alternaPosXePosY[1][i] + 'px';
-  };
+  
+  // INICIA A TELA DE JOGO
+  telaDeJogo();
+  
   document.body.appendChild(legend);
 });
 

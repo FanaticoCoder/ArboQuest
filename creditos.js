@@ -1,3 +1,4 @@
+// QUANDO O BOTÃO DE VOLTAR É CLICADO
 buttonBack.addEventListener('touchend', () => {
   buttonBack.remove();
   
@@ -5,4 +6,4 @@ buttonBack.addEventListener('touchend', () => {
   document.body.appendChild(start);
   document.body.appendChild(nameGame);
   animationNameGame();
-})
+});
