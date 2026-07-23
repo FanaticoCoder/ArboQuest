@@ -38,7 +38,13 @@ window.quest = [
 
 window.questSort = Math.floor(Math.random() * quest.length);
 
+copiaLog = [];
+
 function telaDeJogo() {
+  
+  //FAZ UMA COPIA PARA FARAMTIR QUE DURANTE A JOGATINA, OS VALORES NAO SE REPITAM
+  copiaLog.push(questSort)
+  
   for (let i = 0; i <= 3; i++) {
     
     // CRIA CADA DIV QUE VAI TER UMA RESPOSTA
@@ -59,6 +65,7 @@ function telaDeJogo() {
     // ESCREVE AS RESPOSTAS
     setTimeout(() => {
       alterna[i].textContent = quest[questSort][i + 1][0];
+      
     }, 700 * (i + 1));
     
     // BOTÃO PRA INTERAGIR COM CADA DIV DE RESPOSTA
@@ -66,6 +73,12 @@ function telaDeJogo() {
       
       // SO SE PODE INTERAGIR SE O ÚLTIMO DIV RECEBER UMA RESPOSTA
       if (alterna[3].textContent !== '') {
+        
+        if (quest[questSort][i + 1][1] === true) {
+          console.log('resposta certa')
+        } else {
+          console.log(copiaLog)
+        };
         
       };
     });
